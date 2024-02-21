@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <Link href="/news">News</Link>
-      <Link href="/economy">Economy</Link>
+      <Link href="/keyword/news">News</Link>
+      <Link href="/keyword/economy">Economy</Link>
     </main>
   );
 }
