@@ -1,10 +1,13 @@
-import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import HeaderComponent from "@/components/HeaderComponent";
 
 export default function Home() {
   return (
     <main>
-      <Link href="/keyword/news">News</Link>
-      <Link href="/keyword/economy">Economy</Link>
+      <Navbar />
+      <HeaderComponent>
+        JIOAWFJIOW jfiwajifwaj jifow ajiofjöa jbkrles
+      </HeaderComponent>
     </main>
   );
 }
