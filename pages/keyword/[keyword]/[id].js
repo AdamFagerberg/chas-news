@@ -1,4 +1,4 @@
-const DIN_API_NYCKEL = "pub_3863994d2b65c9b138620bb4dcc189ebd4546";
+const DIN_API_NYCKEL = "pub_3821579930d7e488fafdd41698867c6ece37f";
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
