@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { darkmodeTrue, darkModeFalse } from "@/redux/darkTheme";
 
 export default function Navbar() {
@@ -48,8 +48,13 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/category/travel" className="navLink">
-              Travel
+            <Link href="/category/technology" className="navLink">
+              Technology
+            </Link>
+          </li>
+          <li>
+            <Link href="/bookmarks/" className="navLink">
+              Bookmarks
             </Link>
           </li>
         </ul>

@@ -1,8 +1,13 @@
-const DIN_API_NYCKEL = "pub_3863994d2b65c9b138620bb4dcc189ebd4546";
+import Navbar from "@/components/Navbar";
+import APIKEY from "@/components/APIKeys";
+import { useDispatch } from "react-redux";
+import { addBookmark } from "@/redux/bookmarks";
+
+const DIN_API_NYCKEL = APIKEY;
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${DIN_API_NYCKEL}&q=${params.keyword} AND english`
+    `https://newsdata.io/api/1/news?apikey=${DIN_API_NYCKEL}&category=${params.keyword}&prioritydomain=top&language=en`
   );
   const data = await res.json();
   const articles = data.results;
@@ -24,12 +29,20 @@ export async function getStaticPaths() {
 }
 
 export default function Article({ article }) {
+  const dispatch = useDispatch();
+
+  const handleAddBookmark = (article) => {
+    dispatch(addBookmark(article));
+  };
   return (
     <div>
+      <Navbar />
       {article && (
         <>
           <h2>{article.title}</h2>
           <img src={article.image_url} />
+          <p>{article.description}</p>
+          <button onClick={() => handleAddBookmark(article)}>Bookmark</button>
         </>
       )}
     </div>
