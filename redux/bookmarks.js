@@ -2,22 +2,24 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const bookmarkSlice = createSlice({
   name: "bookmarks",
-  initialState: [],
+  initialState: {
+    articles: [],
+  },
   reducers: {
     addBookmark: (state, action) => {
-      const existingBookmark = state.find(
+      const existingBookmark = state.articles.find(
         (bookmark) => bookmark.article_id === action.payload.article_id
       );
       if (!existingBookmark) {
-        state.push(action.payload);
+        state.articles.push(action.payload);
       }
     },
     removeBookmark: (state, action) => {
-      const index = state.findIndex(
+      const index = state.articles.findIndex(
         (bookmark) => bookmark.article_id === action.payload
       );
       if (index !== -1) {
-        state.splice(index, 1);
+        state.articles.splice(index, 1);
       }
     },
   },

@@ -43,12 +43,13 @@ export default function News({ news }) {
         {news.map((article) => (
           <li key={article.article_id}>
             <NewsCards
+              article={article}
+              id={article.article_id}
               title={article.title}
               imgSrc={article.image_url}
               href={`${router.query.keyword}/${article.article_id}`}
               desc={article.description}
             ></NewsCards>
-            <button onClick={() => handleAddBookmark(article)}>Bookmark</button>
           </li>
         ))}
       </ul>

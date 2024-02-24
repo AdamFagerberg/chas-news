@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import APIKEY from "@/components/APIKeys";
 import { useDispatch } from "react-redux";
 import { addBookmark } from "@/redux/bookmarks";
+import NewsCards from "@/components/NewsCards";
 
 const DIN_API_NYCKEL = APIKEY;
 
@@ -42,7 +43,6 @@ export default function Article({ article }) {
           <h2>{article.title}</h2>
           <img src={article.image_url} />
           <p>{article.description}</p>
-          <button onClick={() => handleAddBookmark(article)}>Bookmark</button>
         </>
       )}
     </div>
