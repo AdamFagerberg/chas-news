@@ -2,8 +2,6 @@ import NewsCards from "@/components/NewsCards";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar";
 import APIKEY from "@/components/APIKeys";
-import { useDispatch } from "react-redux";
-import { addBookmark } from "@/redux/bookmarks";
 
 const DIN_API_NYCKEL = APIKEY;
 
@@ -29,12 +27,6 @@ export async function getStaticPaths() {
 
 export default function News({ news }) {
   const router = useRouter();
-
-  const dispatch = useDispatch();
-
-  const handleAddBookmark = (article) => {
-    dispatch(addBookmark(article));
-  };
 
   return (
     <div>

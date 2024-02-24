@@ -1,8 +1,5 @@
 import Navbar from "@/components/Navbar";
 import APIKEY from "@/components/APIKeys";
-import { useDispatch } from "react-redux";
-import { addBookmark } from "@/redux/bookmarks";
-import NewsCards from "@/components/NewsCards";
 
 const DIN_API_NYCKEL = APIKEY;
 
@@ -30,11 +27,6 @@ export async function getStaticPaths() {
 }
 
 export default function Article({ article }) {
-  const dispatch = useDispatch();
-
-  const handleAddBookmark = (article) => {
-    dispatch(addBookmark(article));
-  };
   return (
     <div>
       <Navbar />

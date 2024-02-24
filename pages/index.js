@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeaderComponent from "@/components/HeaderComponent";
 import NewsCards from "@/components/NewsCards";
-import { addBookmark, removeBookmark } from "@/redux/bookmarks";
-import { useDispatch, useSelector } from "react-redux";
 import APIKEY from "@/components/APIKeys";
 
 const DIN_API_NYCKEL = APIKEY;
@@ -21,17 +19,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ news }) {
-  const dispatch = useDispatch();
-  const bookmarks = useSelector((state) => state.bookmark);
-
-  const handleAddBookmark = (article) => {
-    dispatch(addBookmark(article));
-  };
-
-  const handleRemoveBookmark = (id) => {
-    dispatch(removeBookmark(id));
-  };
-
   return (
     <main>
       <Navbar />
@@ -58,17 +45,3 @@ export default function Home({ news }) {
     </main>
   );
 }
-
-/* {bookmarks.find(
-  (bookmark) => bookmark.article_id === article.article_id
-) ? (
-  <button
-    onClick={() => handleRemoveBookmark(article.article_id)}
-  >
-    Remove Bookmark
-  </button>
-) : (
-  <button onClick={() => handleAddBookmark(article)}>
-    Bookmark
-  </button>
-)} */
