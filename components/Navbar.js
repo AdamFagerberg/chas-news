@@ -11,11 +11,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="max-w-sm">
-      <div className="flex flex-row py-8">
-        <Link href="/" className="mx-8">
-          LOGO
-        </Link>
+    <nav className="w-full flex items-center flex-col border-y-2">
+      <div className="flex flex-row py-5">
         <ul className="flex flex-row gap-10">
           <li>
             <Link href="/category/world" className="navLink">

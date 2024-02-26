@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import APIKEY from "@/components/APIKeys";
+import PageLayout from "@/components/PageLayout";
+import HeaderComponent from "@/components/HeaderComponent";
 
 const DIN_API_NYCKEL = APIKEY;
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `https://newsdata.io/api/1/news?apikey=${DIN_API_NYCKEL}&category=${params.keyword}&prioritydomain=top&language=en`
+    `https://newsdata.io/api/1/news?apikey=${DIN_API_NYCKEL}&category=${params.keyword}&prioritydomain=top&language=en&image=1`
   );
   const data = await res.json();
   const articles = data.results;
@@ -28,7 +30,8 @@ export async function getStaticPaths() {
 
 export default function Article({ article }) {
   return (
-    <div>
+    <PageLayout>
+      <HeaderComponent />
       <Navbar />
       {article && (
         <>
@@ -37,6 +40,6 @@ export default function Article({ article }) {
           <p>{article.description}</p>
         </>
       )}
-    </div>
+    </PageLayout>
   );
 }

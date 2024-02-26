@@ -16,8 +16,8 @@ export default function NewsCards({ title, imgSrc, href, desc, id, article }) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <img className="" src={imgSrc} />
+    <div className="flex flex-col justify-center items-center border-b-2 max-w-80">
+      <img src={imgSrc} />
 
       <h1 className="text-2xl font-bold">{title}</h1>
 
